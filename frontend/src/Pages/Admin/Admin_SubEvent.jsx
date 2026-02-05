@@ -43,8 +43,8 @@ const Admin_SubEvent = () => {
       const response = await api.delete(
         "/Festofy/user/event/subevent/delete",
         {
-          data: { subEventId: subEventno },   
-          withCredentials: true              
+          data: { subEventId: subEventno },
+          withCredentials: true
         }
       );
 
@@ -105,7 +105,7 @@ const Admin_SubEvent = () => {
       Arts: "text-purple-400 bg-purple-500/20",
       Gaming: "text-orange-400 bg-orange-500/20",
       Academic: "text-indigo-400 bg-indigo-500/20",
-     Entertainment: "text-amber-400 bg-amber-500/20"
+      Entertainment: "text-amber-400 bg-amber-500/20"
     };
     return colors[category] || "text-cyan-400 bg-cyan-500/20";
   };
@@ -150,46 +150,46 @@ const Admin_SubEvent = () => {
       {loading ? <Loading_comp2 loading={loading} /> : <div>
         {EventInfo && (
           < div>
-              <div className="p-8 lg:ml-12 mr-12 mt-2 rounded-3xl">
-                <div className='flex items-center gap-4 ml-4'>
-                  <img
-                    src={EventInfo.bannerUrl}
-                    alt={EventInfo.title}
-                    loading="lazy"
-                    className="object-contain rounded-xl w-15 h-15"
-                  />
-                  <h2 className={`text-2xl md:text-3xl font-bold ${getCategoryTextColor(EventInfo.department)}    mb-3`}>{EventInfo.title}</h2>
-                </div>
-                <div className="flex flex-col items-start md:flex-row gap-6 rounded-[20px] overflow-hidden">
-                  <div className="flex flex-col p-4 items-start w-full">
-                    <p className="text-gray-300 mb-4 font-bold">Event Details :</p>
-                    <div className='flex gap-2'>
-                      <MdOutlineDescription className="w-6 h-6 text-cyan-400" />
-                      <p className="text-gray-300 mb-4">{EventInfo.description}</p>
+            <div className="p-8 lg:ml-12 mr-12 mt-2 rounded-3xl">
+              <div className='flex items-center gap-4 ml-4'>
+                <img
+                  src={EventInfo.bannerUrl}
+                  alt={EventInfo.title}
+                  loading="lazy"
+                  className="object-contain rounded-xl w-15 h-15"
+                />
+                <h2 className={`text-2xl md:text-3xl font-bold ${getCategoryTextColor(EventInfo.department)}    mb-3`}>{EventInfo.title}</h2>
+              </div>
+              <div className="flex flex-col items-start md:flex-row gap-6 rounded-[20px] overflow-hidden">
+                <div className="flex flex-col p-4 items-start w-full">
+                  <p className="text-gray-300 mb-4 font-bold">Event Details :</p>
+                  <div className='flex gap-2'>
+                    <MdOutlineDescription className="w-6 h-6 text-cyan-400" />
+                    <p className="text-gray-300 mb-4">{EventInfo.description}</p>
+                  </div>
+                  <div className='flex gap-2'>
+                    <div>
+                      {EventInfo.visibility === "college" ? <LiaUniversitySolid className="w-6 h-6 text-cyan-400" /> : <AiOutlineGlobal className="w-6 h-6 text-cyan-400" />}
                     </div>
-                    <div className='flex gap-2'>
-                      <div>
-                        {EventInfo.visibility === "college" ? <LiaUniversitySolid className="w-6 h-6 text-cyan-400" /> : <AiOutlineGlobal className="w-6 h-6 text-cyan-400" />}
-                      </div>
-                      <p className="text-gray-300 mb-4">Participants Allowed : {EventInfo.visibility === "college" ? "Only Your College Students Allowed" : "All College Students Allowed"}</p>
-                    </div>
+                    <p className="text-gray-300 mb-4">Participants Allowed : {EventInfo.visibility === "college" ? "Only Your College Students Allowed" : "All College Students Allowed"}</p>
+                  </div>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {EventInfo?.tags?.slice(0, 3).map((tag, tagIndex) => (
-                        <div key={tagIndex} className="flex items-center space-x-1 px-3 py-1 bg-slate-700/50 rounded-lg">
-                          <Tag className="w-3 h-3 text-gray-400" />
-                          <span className="text-xs text-gray-400">{tag}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-gray-400 mb-4">~~ Hosted By {EventInfo.organiser_name}</p>
-                    <div className={`px-4 py-1 bg-gradient-to-r ${getCategoryColor(EventInfo.department)} rounded-full border`}>
-                      <span className="text-sm font-semibold text-center">{EventInfo.department}</span>
-                    </div>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {EventInfo?.tags?.slice(0, 3).map((tag, tagIndex) => (
+                      <div key={tagIndex} className="flex items-center space-x-1 px-3 py-1 bg-slate-700/50 rounded-lg">
+                        <Tag className="w-3 h-3 text-gray-400" />
+                        <span className="text-xs text-gray-400">{tag}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-gray-400 mb-4">~~ Hosted By {EventInfo.organiser_name}</p>
+                  <div className={`px-4 py-1 bg-gradient-to-r ${getCategoryColor(EventInfo.department)} rounded-full border`}>
+                    <span className="text-sm font-semibold text-center">{EventInfo.department}</span>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
         )
         }
@@ -203,92 +203,92 @@ const Admin_SubEvent = () => {
 
         {/* subevent comp */}
         <div className="w-full mt-10">
-        <div className='flex flex-col items-center mt-3'>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-10 w-full md:w-[80%]">
-            {subEventInfo?.map((subEvent, index) => {
-              const SubEventIcon = getSubEventIcon(subEvent.subEventCategory);
-              const typeColorClasses = getSubEventTypeColor(subEvent.subEventCategory);
-              const availability = getAvailabilityStatus(subEvent.currentParticipants, subEvent.maxParticipants);
+          <div className='flex flex-col items-center mt-3'>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-10 w-full md:w-[80%]">
+              {subEventInfo?.map((subEvent, index) => {
+                const SubEventIcon = getSubEventIcon(subEvent.subEventCategory);
+                const typeColorClasses = getSubEventTypeColor(subEvent.subEventCategory);
+                const availability = getAvailabilityStatus(subEvent.currentParticipants, subEvent.maxParticipants);
 
-              return (
-                <div
-                  key={subEvent._id}
-                  className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm rounded-2xl border border-cyan-400/20 p-6 hover:border-cyan-400/40 transition-all duration-300 transform hover:scale-105 animate-fadeInUp"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                ><Link to={`/Admin/AdminSubEvent/${eventId}/${subEventInfo[index]._id}`}>
-                    {/* Sub-event Header */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className={`p-3 bg-gradient-to-r ${typeColorClasses} rounded-xl border`}>
-                        <SubEventIcon className="w-6 h-6" />
-                      </div>
-                      <div className='absolute right-0 flex p-2 gap-1'>
-                        <button onClick={(e) => {
-                          e.preventDefault()
-                          e.stopPropagation();
-                          window.location.href = `/Admin/EditSubevent/${subEventInfo[index]._id}`;
-                        }}>
-                          <FaEdit size={30} className='text-cyan-600 cursor-pointer' />
-                        </button>
-                        <MdDelete onClick={(e) => {
-                          e.preventDefault()
-                          e.stopPropagation()
-                          deletesubevent(subEventInfo[index]._id)
-                        }} size={30} className='text-red-500 cursor-pointer' />
-                      </div>
-                    </div>
-
-                    {/* Sub-event Details */}
-                    <h3 className="text-xl font-bold text-white mb-2">{subEvent.title}</h3>
-                    <p className="text-gray-400 text-sm mb-4 line-clamp-2">{subEvent.description}</p>
-
-                    {/* Time and Location */}
-                    <div className="space-y-3 mb-4">
-                      <div className="flex items-center space-x-3 text-gray-300 text-sm">
-                        <Clock className="w-4 h-4 text-cyan-400" />
-                        <span>{subEvent.time}</span>
-                        <span className="text-gray-500">({subEvent.duration})</span>
-                      </div>
-                      <div className="flex items-center space-x-3 text-gray-300 text-sm">
-                        <MapPin className="w-4 h-4 text-cyan-400" />
-                        <span>{subEvent.location}</span>
-                      </div>
-                      <div className="flex items-center space-x-3 text-gray-300 text-sm">
-                        <FaIndianRupeeSign className="w-4 h-4 text-cyan-400" />
-                        <span>Entry Fee: {subEvent.price === 0 ? "Free" : subEvent.price}</span>
-                      </div>
-                    </div>
-
-                    {/* Requirements */}
-                    {subEvent.requirements && (
-                      <div className="mb-4 p-3 bg-slate-700/30 rounded-xl border border-gray-600/30">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <CheckCircle className="w-4 h-4 text-cyan-400" />
-                          <span className="text-sm font-medium text-cyan-400">Requirements</span>
+                return (
+                  <div
+                    key={subEvent._id}
+                    className="bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm rounded-2xl border border-cyan-400/20 p-6 hover:border-cyan-400/40 transition-all duration-300 transform hover:scale-105 animate-fadeInUp"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  ><Link to={`/Admin/AdminSubEvent/${eventId}/${subEventInfo[index]._id}`}>
+                      {/* Sub-event Header */}
+                      <div className="flex items-start justify-between mb-4">
+                        <div className={`p-3 bg-gradient-to-r ${typeColorClasses} rounded-xl border`}>
+                          <SubEventIcon className="w-6 h-6" />
                         </div>
-                        <p className="text-xs text-gray-400">{subEvent.requirements}</p>
+                        <div className='absolute right-0 flex p-2 gap-1'>
+                          <button onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation();
+                            window.location.href = `/Admin/EditSubevent/${subEventInfo[index]._id}`;
+                          }}>
+                            <FaEdit size={30} className='text-cyan-600 cursor-pointer' />
+                          </button>
+                          <MdDelete onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            deletesubevent(subEventInfo[index]._id)
+                          }} size={30} className='text-red-500 cursor-pointer' />
+                        </div>
                       </div>
-                    )}
+
+                      {/* Sub-event Details */}
+                      <h3 className="text-xl font-bold text-white mb-2">{subEvent.title}</h3>
+                      <p className="text-gray-400 text-sm mb-4 line-clamp-2">{subEvent.description}</p>
+
+                      {/* Time and Location */}
+                      <div className="space-y-3 mb-4">
+                        <div className="flex items-center space-x-3 text-gray-300 text-sm">
+                          <Clock className="w-4 h-4 text-cyan-400" />
+                          <span>{subEvent.time}</span>
+                          <span className="text-gray-500">({subEvent.duration})</span>
+                        </div>
+                        <div className="flex items-center space-x-3 text-gray-300 text-sm">
+                          <MapPin className="w-4 h-4 text-cyan-400" />
+                          <span>{subEvent.location}</span>
+                        </div>
+                        <div className="flex items-center space-x-3 text-gray-300 text-sm">
+                          <FaIndianRupeeSign className="w-4 h-4 text-cyan-400" />
+                          <span>Entry Fee: {subEvent.price === 0 ? "Free" : subEvent.price}</span>
+                        </div>
+                      </div>
+
+                      {/* Requirements */}
+                      {subEvent.requirements && (
+                        <div className="mb-4 p-3 bg-slate-700/30 rounded-xl border border-gray-600/30">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <CheckCircle className="w-4 h-4 text-cyan-400" />
+                            <span className="text-sm font-medium text-cyan-400">Requirements</span>
+                          </div>
+                          <p className="text-xs text-gray-400">{subEvent.requirements}</p>
+                        </div>
+                      )}
 
 
-                    <button onClick={(e) => {
-                      setPrizes(subEvent?.prizes)
-                      setPrizesPopup(true)
-                      e.preventDefault()
-                      e.stopPropagation()
-                    }}
-                      className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500
+                      <button onClick={(e) => {
+                        setPrizes(subEvent?.prizes)
+                        setPrizesPopup(true)
+                        e.preventDefault()
+                        e.stopPropagation()
+                      }}
+                        className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-400 hover:to-blue-500
                         }`}
-                    >
-                      <span className='whitespace-nowrap text-sm sm:text-base'>Prizes & Rewards</span>
-                    </button>
+                      >
+                        <span className='whitespace-nowrap text-sm sm:text-base'>Prizes & Rewards</span>
+                      </button>
 
 
-                  </Link>
-                </div>
-              );
-            })}
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
         </div>
         {PrizesPopup && (
           <div className="fixed inset-0 opacity-90  bg-black bg-opacity-80 flex items-center justify-center p-4 z-50">

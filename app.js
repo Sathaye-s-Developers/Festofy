@@ -35,13 +35,15 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
   "https://festofy-frontend.onrender.com",
-  "https://hoppscotch.io"
+  "https://hoppscotch.io",
 ];
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  }),
+);
 
 //cookie setup
 const cookieParser = require("cookie-parser");
@@ -63,7 +65,7 @@ const forgotPasswordRoutes = require("./routes/forgot_password");
 const volunteerRoutes = require("./routes/volunteer.router");
 const setProfile = require("./routes/profile.router");
 const payment = require("./routes/payment");
-const attendance=require("./routes/attendence.router")
+const attendance = require("./routes/attendence.router");
 
 //  Mount Routes
 app.use("/", homeRoutes);
@@ -84,3 +86,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+//changes

@@ -1,15 +1,21 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
+  "types": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "festofy011",
+    "festofy",
+    "festofy-startup",
+    "festofy-saas"
+  ],
+  "author": "nitesh011y",
+  "license": "MIT",
   "type": "commonjs",
-  "description": "",
+  "description": "a small SAAS project.",
   "dependencies": {
     "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
@@ -34,5 +40,8 @@
     "razorpay": "^2.9.6",
     "socket.io": "^4.8.1",
     "validator": "^13.15.15"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }
